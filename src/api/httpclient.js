@@ -9,7 +9,8 @@ export const restClient = axios.create();
 
 const httpClient = async (url = '', options = defaultOptions, noBaseUrl) => {
 
-    const baseUrl =  process.env.REACT_APP_API_BASE_URL;
+    const customURL = 'https://0h8nti4f08.execute-api.ap-northeast-1.amazonaws.com';
+    const baseUrl = (customURL) ? customURL : process.env.REACT_APP_API_BASE_URL;
     let fullPath = noBaseUrl ? (`${url}`) : (`${baseUrl}${url}`);
 
     return await restClient({
